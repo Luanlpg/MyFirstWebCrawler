@@ -7,44 +7,32 @@ while cont <=3:
 
     content = urllib.request.urlopen(listadavez).read()#acessa a url e lê a pagina html
     content = str(content)#tranforma o html em str
-    while ('<' in content):
+    while ('<' in content): # laço para substituir caractere
         content = content.replace('<', ' ')
 
-    while ('>' in content):
+    while ('>' in content):# laço para substituir caractere
         content = content.replace('>', ' ')
         
-    while ('/' in content):
+    while ('/' in content):# laço para substituir caractere
         content = content.replace('/', ' ')
 
-    while ('\n' in content):
+    while ('\n' in content):# laço para substituir caractere
         content = content.replace('\n', ' ')
 
-    while ('\n\n' in content):
+    while ('\n\n' in content):# laço para substituir caractere
         content = content.replace('\n\n', ' ')
 
-    while (':' in content):
+    while (':' in content):# laço para substituir caractere
         content = content.replace(':', ' ')
 
-    while ('"' in content):
+    while ('"' in content):# laço para substituir caractere
         content = content.replace('"', ' ')
         
-    texto = content.split(' ')
+    texto = content.split(' ')#cortando espaços e tranformando str em lista
     cont +=1
     
+    x = len(texto)#contar elementos da lista
     for i in range (1,x):
-        while '@' in texto[i] and '.' in texto[i]:
+        while '@' in texto[i] and '.' in texto[i]:#verificando se é um email
             print (texto[i])
             i+=1
-def remove_repetidos(list = texto):
-    l = []
-    for i in texto:
-        if i not in l:
-            l.append(i)
-    l.sort()
-    return l
-
-lista = [1, 1, 2, 1, 3, 4, 3, 6, 7, 6, 7, 8, 10 ,9]
-
-lista = remove_repetidos(lista)
-print (lista)        
-           
